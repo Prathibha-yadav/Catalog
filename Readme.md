@@ -1,8 +1,3 @@
-Here's a `README.md` file for your project, including an explanation of the code and both test cases.
-
-### README.md
-
-```markdown
 # Shamir's Secret Sharing Algorithm in JavaScript
 
 This project implements a simplified version of Shamir's Secret Sharing algorithm in JavaScript. The objective is to find the constant term (`c`) of an unknown polynomial using Lagrange Interpolation and detect any "wrong" points in the given input.
