@@ -48,7 +48,7 @@ function processTestCase(testCase) {
     // Calculate the constant term using Lagrange interpolation
     const constantTerm = lagrangeInterpolation(points.slice(0, degree), degree);
 
-    // Find wrong points in the second test case
+    // Find wrong points
     const wrongPoints = [];
     
     // Loop through the remaining points (from degree to the end of the points array)
@@ -66,13 +66,15 @@ function processTestCase(testCase) {
     };
 }
 
-// Function to print results for both test cases
-function printResults(testCase1, testCase2) {
+// Function to print results for all test cases
+function printResults(testCase1, testCase2, testCase3) {
     const result1 = processTestCase(testCase1);
     const result2 = processTestCase(testCase2);
+    const result3 = processTestCase(testCase3);
 
     console.log("Secret for Test Case 1: ", result1.constantTerm);
     console.log("Secret for Test Case 2: ", result2.constantTerm);
+    console.log("Secret for Test Case 3: ", result3.constantTerm);
 
     if (result2.wrongPoints.length > 0) {
         console.log("Wrong points in Test Case 2:");
@@ -82,6 +84,15 @@ function printResults(testCase1, testCase2) {
     } else {
         console.log("No wrong points found in Test Case 2.");
     }
+
+    if (result3.wrongPoints.length > 0) {
+        console.log("Wrong points in Test Case 3:");
+        result3.wrongPoints.forEach(point => {
+            console.log(`Point with x = ${point.x} and y = ${point.y} is wrong`);
+        });
+    } else {
+        console.log("No wrong points found in Test Case 3.");
+    }
 }
 
 // Main function to read the input JSON and call the processing functions
@@ -89,9 +100,10 @@ function main() {
     // Read test cases from files
     const testCase1 = JSON.parse(fs.readFileSync('testcase1.json', 'utf8'));
     const testCase2 = JSON.parse(fs.readFileSync('testcase2.json', 'utf8'));
+    const testCase3 = JSON.parse(fs.readFileSync('testcase3.json', 'utf8'));
 
-    // Print results for both test cases
-    printResults(testCase1, testCase2);
+    // Print results for all test cases
+    printResults(testCase1, testCase2, testCase3);
 }
 
 // Execute the main function
