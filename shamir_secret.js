@@ -32,6 +32,7 @@ function processTestCase(testCase) {
     const degree = k; // k = m + 1 -> m = k - 1, so we are using k points
 
     // Decode all the given points
+    
     const points = [];
     for (let i = 1; i <= n; i++) {
         const key = i.toString(); // Convert index to string to match the JSON keys
@@ -45,12 +46,14 @@ function processTestCase(testCase) {
     }
 
     // Calculate the constant term using Lagrange interpolation
+
     const constantTerm = lagrangeInterpolation(points.slice(0, degree), degree);
 
     // Find wrong points
     const wrongPoints = [];
     
     // Loop through the remaining points (from degree to the end of the points array)
+
     for (let i = degree; i < points.length; i++) {
         const point = points[i];
         const fits = checkIfPointFits(point.x, point.y, points.slice(0, degree), degree);
@@ -66,6 +69,7 @@ function processTestCase(testCase) {
 }
 
 // Function to print results for all test cases
+
 function printResults(testCase1, testCase2, testCase3) {
     const result1 = processTestCase(testCase1);
     const result2 = processTestCase(testCase2);
@@ -95,6 +99,7 @@ function printResults(testCase1, testCase2, testCase3) {
 }
 
 // Main function to read the input JSON and call the processing functions
+
 function main() {
     // Read test cases from files
     const testCase1 = JSON.parse(fs.readFileSync('testcase1.json', 'utf8'));
@@ -106,5 +111,8 @@ function main() {
 }
 
 // Execute the main function
+// Execute the main function
+// Execute the main function
 main();
 //  feature1 implememted
+// implememting new feature
