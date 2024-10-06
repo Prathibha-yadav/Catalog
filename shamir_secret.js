@@ -19,7 +19,6 @@ function lagrangeInterpolation(points, degree) {
     }
     return constantTerm;
 }
-
 // Function to check if a given point fits the polynomial
 function checkIfPointFits(x, y, points, degree) {
     let interpolatedY = lagrangeInterpolation(points, degree); // Interpolating the polynomial
